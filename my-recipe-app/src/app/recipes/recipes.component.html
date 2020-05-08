@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <div class= "row">
+    <div class= "col-xs-12">
+      <ul clas= "nav nav-tabs"> 
+        <h2> Please select a recipe </h2>
+        <button class= "btn btn-success" (click)= "newRecipe()"> New Recipe </button>
+        <hr>
+        <a *ngFor= "let recipe of recipes" 
+        [routerLink]= "[recipe.name,'recipe-detail']">
+          {{recipe.name}}-{{recipe.description}}
+          <hr>
+        </a>
+       
+        <router-outlet></router-outlet>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

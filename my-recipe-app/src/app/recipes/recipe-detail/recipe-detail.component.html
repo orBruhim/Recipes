@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <h4> {{recipe.name}}- {{recipe.description}} </h4>
+        <img
+        src= "{{recipe.imagepath}}"
+        style= "max-height: 600px;"
+        style="max-width: 400px;">
+        <div class= "text-left">
+          <hr>
+          <button class= "btn btn-success" (click)= "onShowIngridients()">
+          Ingridients List </button>
+          <div *ngIf= "showIngridients" >
+            <h4 *ngFor= "let ingridient of recipe.ingridients">
+              {{ingridient.name}} - {{ingridient.amount}}
+            </h4>
+            </div>
+          </div>
+            <div class="container">
+              <div class="row">
+                <div class="col text-center">
+                    <nav class= "navbar navbar-left">
+                      <ul class= "nav navbar-nav navbar-left" >
+                        <li class= "dropdown" appAppDropDown>
+                          <h4 href= "#" style = "cursor: pointer;" class= "dropdown-toggle" role ="button">
+                            Recipe options <span class="caret"></span></h4>
+                            <ul class= "dropdown-menu">
+                            <li> <a style = "cursor: pointer;" (click)= "onAddShoppingFromRecipe()">
+                            Add all ingridients to shopping List</a></li>
+                            <li> <a style = "cursor: pointer;" routerLink= "full-recipe">
+                            show full recipe</a></li>
+                            <li> <a style = "cursor: pointer;" [routerLink]= "['../', 'edit']" >
+                            Edit Recipe </a></li>
+                            <li> <a style = "cursor: pointer;" (click)= "onDelete()">
+                            Delete Recipe </a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              
+        </div>
+
+  </div>
+  </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-22">
+  <router-outlet></router-outlet>   
+</div>
+</div>
+</div> 
+
+     

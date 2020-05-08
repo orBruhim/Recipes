@@ -1,0 +1,48 @@
+<nav class= "navbar navbar-default"> 
+  <div class="container-fluid">
+    <div class= "row">
+      <div class= "col-xs-12 col-sm-10 col-md-8 col-sm-offest-1 col-md-offest-2">
+        <ul class= "nav nav-tabs">
+          <li> <a class="navbar-brand"> Recipe Book </a></li>
+          <li  role= "presentation" routerLinkActive= "active" 
+          [routerLinkActiveOptions]= "{exact:true}">
+          <a routerLink= "/recipes"> Recipes</a></li>
+          <li  role= "presentation" routerLinkActive= "active"> 
+          <a routerLink= "/shoppingList"> Shopping List</a></li>
+        </ul>
+      </div>
+
+        <ul class= "nav navbar-nav navbar-right">
+          <li class= "dropdown" appAppDropDown>
+          <a style = "cursor: pointer;" class= "dropdown-toggle" role ="button">
+           Manage <span class="caret"></span></a>
+            <ul class= "dropdown-menu">
+             <li> <a style = "cursor: pointer;" (click)= "onSaveData()"> Save Data</a></li>
+             <li> <a style = "cursor: pointer;" (click)= "onFetchData()"> Fetch Data</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+
+
+
+<div class="row">
+  <div class="col-md-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

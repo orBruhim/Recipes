@@ -1,0 +1,26 @@
+<form (ngSubmit)= "onAddIngridient(f)" #f="ngForm">
+  <label> Ingridient</label>
+  <input type= "text"
+   class= "form-control"
+   id="ingridient"
+   ngModel 
+   name= "ingridient"
+   required>
+  <label> amount </label>
+  <input type= "text"
+   class= "form-control"
+   id="amount"  
+   ngModel 
+   name= "amount"
+   required>
+  
+   
+  <button class= "btn btn-success" type= "submit" [disabled]= !f.valid>
+     {{editMode ? 'Update': 'Add'}} </button> 
+  <button class= "btn btn-primary" type= "button"  (click)= "onClear()">
+     Clear </button>
+  <button class= "btn btn-danger" type= "button" (click)= "onDelete()"
+  *ngIf= "editMode">
+     Delete</button>
+     <br>
+  </form>

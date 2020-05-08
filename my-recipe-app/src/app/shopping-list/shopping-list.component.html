@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class= "row">
+    <div class= "col-xs-16">
+      <ul clas= "nav nav-tabs"> 
+      <app-shopping-edit></app-shopping-edit>
+      <br>
+      <a style= "cursor: pointer;"
+      *ngFor= "let shop of shopping; let i=index" 
+      (click)= "onEditItem(i)">
+      {{shop.name}} - {{shop.amount}}
+      <hr>
+      </a>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+
