@@ -6,6 +6,7 @@
       <br>
       <a style= "cursor: pointer;"
       *ngFor= "let shop of shopping; let i=index" 
+      [@list]
       (click)= "onEditItem(i)">
       {{shop.name}} - {{shop.amount}}
       <hr>

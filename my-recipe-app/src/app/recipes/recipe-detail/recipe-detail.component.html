@@ -21,10 +21,6 @@
                 <div class="col text-center">
                     <nav class= "navbar navbar-left">
                       <ul class= "nav navbar-nav navbar-left" >
-                        <li class= "dropdown" appAppDropDown>
-                          <h4 href= "#" style = "cursor: pointer;" class= "dropdown-toggle" role ="button">
-                            Recipe options <span class="caret"></span></h4>
-                            <ul class= "dropdown-menu">
                             <li> <a style = "cursor: pointer;" (click)= "onAddShoppingFromRecipe()">
                             Add all ingridients to shopping List</a></li>
                             <li> <a style = "cursor: pointer;" routerLink= "full-recipe">
@@ -33,8 +29,6 @@
                             Edit Recipe </a></li>
                             <li> <a style = "cursor: pointer;" (click)= "onDelete()">
                             Delete Recipe </a></li>
-                          </ul>
-                        </li>
                       </ul>
                     </nav>
                   </div>

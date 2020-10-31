@@ -1,11 +1,12 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {tap} from 'rxjs/operators';
+import {tap, take, exhaustMap} from 'rxjs/operators';
 
 import { RecipesService } from './recipes/recipes.service';
 import { Ingridient } from './recipes/ingridient.model';
 import { ShoppingService } from './shopping-list/shopping.service';
 import { Recipe } from './recipes/Recipe.model';
+import { AuthService } from './auth/auth.service';
 
 @Injectable ({
     providedIn: 'root'
@@ -13,7 +14,8 @@ import { Recipe } from './recipes/Recipe.model';
 export class DataStorageService {
     constructor(private http: HttpClient,
                 private recipeService: RecipesService,
-                private shoppingListService: ShoppingService) {}
+                private shoppingListService: ShoppingService,
+                private authService: AuthService) {}
 
     storeRecipes() {
         const recipes = this.recipeService.getRecipes();
@@ -24,20 +26,17 @@ export class DataStorageService {
     }
     fetchRecipes() {
         return this.http.get <Recipe[]>
-         ('https://recipe-book-b56ee.firebaseio.com/recipes.json')
-         .pipe(
-             tap(recipes => {
-                    this.recipeService.setRecipes(recipes);
-                    console.log(recipes);
-                }));
+         ('https://recipe-book-b56ee.firebaseio.com/recipes.json', ).pipe(
+         tap(recipes => {
+            this.recipeService.setRecipes(recipes);
+            console.log(recipes);
+        }));
+
     }
 
     storeShoppingList() {
         const shopping = this.shoppingListService.getShopping();
-        this.http.put ('https://recipe-book-b56ee.firebaseio.com/shopping.json', shopping)
-        .subscribe(respose => {
-            console.log(respose);
-            });
+        return this.http.put ('https://recipe-book-b56ee.firebaseio.com/shopping.json', shopping);
     }
 
     fetchShoppingList() {

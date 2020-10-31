@@ -17,7 +17,7 @@ export class FullRecipeComponent implements OnInit {
               private recipeService: RecipesService) { }
 
   ngOnInit() {
-    this.recipeName = this.route.snapshot.params['name'];
+    this.recipeName = this.route.snapshot.params.name;
     this.recipe = this.recipeService.getRecipe(this.recipeName);
   }
 

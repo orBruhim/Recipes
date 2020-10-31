@@ -11,7 +11,7 @@ import { Recipe } from './Recipe.model';
 export class RecipesService {
     recipeChanged = new Subject <Recipe[]> ();
     constructor(private shoppingService: ShoppingService) {}
-    private recipes: Recipe[] = [];
+     recipes: Recipe[] = [];
 //     new Recipe (
 //     'Shakshuka',
 //      'Tomatos with eggs',
@@ -51,7 +51,7 @@ export class RecipesService {
 //     'cook the meat over medium heat for 7 minutes, then spread ketchup on the bun.',
 //     )
 
-    // ];
+//     ];
 
     getRecipes() {
         return this.recipes.slice ();

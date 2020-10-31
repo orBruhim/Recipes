@@ -18,10 +18,10 @@ export class RecipeDetailComponent implements OnInit {
               private router: Router) {}
 
   ngOnInit() {
-    const name = this.route.snapshot.params['name'];
+    const name = this.route.snapshot.params.name;
     this.recipe = this.recipesService.getRecipe (name);
     this.route.params.subscribe ((params: Params) => {
-    this.recipe = this.recipesService.getRecipe (params['name']);
+    this.recipe = this.recipesService.getRecipe (params.name);
     });
   }
 
@@ -31,6 +31,7 @@ export class RecipeDetailComponent implements OnInit {
 
   onAddShoppingFromRecipe() {
     this.recipesService.AddToShoppingList(this.recipe.ingridients);
+    this.router.navigate(['shoppingList']);
   }
   onDelete() {
   this.recipesService.DeleteRecipe(this.recipe.name);

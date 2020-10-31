@@ -4,16 +4,21 @@
       <div class= "col-xs-12 col-sm-10 col-md-8 col-sm-offest-1 col-md-offest-2">
         <ul class= "nav nav-tabs">
           <li> <a class="navbar-brand"> Recipe Book </a></li>
-          <li  role= "presentation" routerLinkActive= "active" 
+          <li  role= "presentation" routerLinkActive= "active"  *ngIf = "isAuthendication"
           [routerLinkActiveOptions]= "{exact:true}">
           <a routerLink= "/recipes"> Recipes</a></li>
+          <li  role= "presentation" routerLinkActive= "active" *ngIf = "!isAuthendication"> 
+            <a routerLink= "/auth"> Authendication</a></li>
           <li  role= "presentation" routerLinkActive= "active"> 
           <a routerLink= "/shoppingList"> Shopping List</a></li>
-        </ul>
+          </ul>
       </div>
 
         <ul class= "nav navbar-nav navbar-right">
-          <li class= "dropdown" appAppDropDown>
+          <li *ngIf = "isAuthendication">
+            <a style = "cursor: pointer;" (click)= "onLogout()"> Logout</a>
+          </li>
+          <li class= "dropdown" appAppDropDown *ngIf = "isAuthendication">
           <a style = "cursor: pointer;" class= "dropdown-toggle" role ="button">
            Manage <span class="caret"></span></a>
             <ul class= "dropdown-menu">

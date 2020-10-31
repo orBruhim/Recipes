@@ -1,0 +1,27 @@
+<div class="alert alert-danger"  *ngIf= "error">
+  <p>
+    {{error}}
+  </p>
+</div>
+<form (ngSubmit) = "onSubmit()" #authForm= "ngForm">
+<div class=" col-xs-10">
+  <div class= "col-md-14">
+  <label> Email</label>
+  <input id= "email" name= "email" class= "form-control" type= "email" 
+  ngModel
+  required
+  email> 
+  <label> Password</label>
+  <input id= "password" name= "password" class= "form-control" type= "password"
+   ngModel
+   required
+   minlength= "6">
+  <hr>
+</div>
+</div>
+<div class=" col-xs-10">
+  <button class=" button btn-primary"  type= "submit" [disabled]= !authForm.valid> {{ isLogin ? 'Login' : 'Sign up'}} </button> |
+  <button class=" button btn-primary"  type= "button" (click)= "onSwitchMode()">
+   {{isLogin ? 'switch to Sign up' : 'switch to login'}} </button>
+</div>
+</form>
